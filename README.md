@@ -32,5 +32,20 @@ Users can view a list of movies, pick one, specify the number of seats, and rece
 ## 💻 How to Run
 1. Clone the repository  
    ```bash
-   git clone https://github.com/<your-username>/movie-ticket-booking.git
+   https://github.com/roshhellwett/Movie_Ticket_Counter.git
    cd movie-ticket-booking
+   gcc movie_ticket.c -o movie_ticket
+   ./movie_ticket
+
+## 🧾 Example Output
+1. Avatar 2 - $12.50
+2. Avengers - $11.00
+3. Jurassic World - $10.00
+Select movie (1-3): 2
+Enter number of seats: 3
+
+MOVIE SELECTED - AVENGERS
+NO. OF SEATS - 3
+TOTAL BILL WITH 10% TAX - $36.30
+
+
