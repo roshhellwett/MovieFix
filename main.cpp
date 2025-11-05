@@ -56,25 +56,34 @@ void printTicket(int movieChoice, int seats, float total)
     printf("NO. OF SEATS - %d\n", seats);
     printf("TOTAL BILL WITH 10%% TAX - $%.2f\n", total);
 }
-
+int userchoiceFunc(int choice)
+{
+    printf("BOOKING SECTION");
+    scanf("%d", &choice);
+}
 int main()
 {
-    int movieChoice, seats;
-    float price, total;
-
-    displayMovies();
-    scanf("%d", &movieChoice);
-
-    printf("Enter number of seats: ");
-    scanf("%d", &seats);
-
-    price = MoviePrice(movieChoice);
-    if (price == 0.0)
+    char choice;
+    do
     {
-        printf("Invalid movie choice!\n");
-        return 1;
-    }
-    total = calculateTotal(price, seats);
-    printTicket(movieChoice, seats, total);
+        int movieChoice, seats;
+        float price, total;
+
+        displayMovies();
+        scanf("%d", &movieChoice);
+
+        printf("Enter number of seats: ");
+        scanf("%d", &seats);
+
+        price = MoviePrice(movieChoice);
+        if (price == 0.0)
+        {
+            printf("Invalid movie choice!\n");
+            return 1;
+        }
+        total = calculateTotal(price, seats);
+        printTicket(movieChoice, seats, total);
+        choice = userchoiceFunc(choice);
+    }while (choice=='y' || choice=='Y');
     return 0;
 }
