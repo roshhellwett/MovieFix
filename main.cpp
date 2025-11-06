@@ -4,9 +4,15 @@ void displayMovies()
     printf("1. Avatar 2 - $12.50\n");
     printf("2. Avengers - $11.00\n");
     printf("3. Jurassic World - $10.00\n");
-    printf("Select movie (1-3): ");
+    printf("Select movie (1-3)\n");
+    printf("-->");
 }
-
+void greetingdisFunc()
+{
+    printf("\n");
+    printf("*----BOOKING SECTION----*");
+    printf("\n");
+}
 float MoviePrice(int movieChoice)
 {
     switch (movieChoice)
@@ -56,23 +62,26 @@ void printTicket(int movieChoice, int seats, float total)
     printf("NO. OF SEATS - %d\n", seats);
     printf("TOTAL BILL WITH 10%% TAX - $%.2f\n", total);
 }
-int userchoiceFunc(int choice)
+char userchoiceFunc()
 {
-    printf("BOOKING SECTION");
-    scanf("%d", &choice);
+    char choice;
+    scanf(" %c", &choice);
+    return choice;
 }
 int main()
 {
     char choice;
     do
     {
+        greetingdisFunc();
         int movieChoice, seats;
         float price, total;
 
         displayMovies();
         scanf("%d", &movieChoice);
 
-        printf("Enter number of seats: ");
+        printf("Enter number of seats \n");
+        printf("-->");
         scanf("%d", &seats);
 
         price = MoviePrice(movieChoice);
@@ -83,7 +92,17 @@ int main()
         }
         total = calculateTotal(price, seats);
         printTicket(movieChoice, seats, total);
-        choice = userchoiceFunc(choice);
-    }while (choice=='y' || choice=='Y');
+        printf("\nDO YOU WANT TO BOOK AGAIN\n");
+        printf("Y FOR YES\n");
+        printf("N FOR NO\n");
+        printf("CHOOSE Y || N\n");
+        printf("-->");
+        choice = userchoiceFunc();
+        if (choice == 'n' || choice == 'N')
+        {
+            printf("\nTHANKS FOR USING MOVIEFIX\n");
+            return 0;
+        }
+    }while (choice == 'y' || choice == 'Y');
     return 0;
 }

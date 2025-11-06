@@ -14,5 +14,4 @@ add_executable(MovieFix
         .idea/workspace.xml
         LICENSE
         main.cpp
-        Movie_Ticket_Counter.exe
         README.md)
